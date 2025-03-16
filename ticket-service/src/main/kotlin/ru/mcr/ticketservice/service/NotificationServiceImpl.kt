@@ -20,7 +20,7 @@ private const val URL = "http://localhost:8886/api/v1/notification/send"
 private const val METRIC_NAME = "ticket_service_requests_total"
 
 @Service
-class NotificationServiceImpl (private val restTemplate: RestTemplate): NotificationService {
+open class NotificationServiceImpl (private val restTemplate: RestTemplate): NotificationService {
 
     private val log: Logger = LoggerFactory.getLogger(NotificationServiceImpl::class.java)
 
