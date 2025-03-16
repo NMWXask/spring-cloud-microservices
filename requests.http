@@ -1,0 +1,9 @@
+POST http://localhost:8089/booking
+Content-Type: application/json
+
+{
+  "ticketId": 1,
+  "userId": 2,
+  "artistId": 3,
+  "seat": "A1"
+}

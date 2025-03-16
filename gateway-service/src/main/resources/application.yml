@@ -1,0 +1,52 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: booking-service
+          uri: lb://booking-service
+          predicates:
+            - Path=/booking/**
+          filters:
+            - RedirectToAuthenticationFilter
+
+        - id: artist-service
+          uri: lb://artist-service
+          predicates:
+            - Path=/artist/**
+          filters:
+            - RedirectToAuthenticationFilter
+
+        - id: ticket-service
+          uri: lb://ticket-service
+          predicates:
+            - Path=/ticket/**
+          filters:
+            - RedirectToAuthenticationFilter
+
+        - id: identity-service
+          uri: lb://identity-service
+          predicates:
+            - Path=/auth/**
+
+  application:
+    name: gateway-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8761/eureka/
+
+jwt:
+  secret: "E38FAC7A1631103FA4A4670A8749EE01062B937DC639E88F933BD3691CA0C116"
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, metrics, prometheus
+#  metrics:
+#    export:
+#      prometheus:
+#        enabled: true
+#    tags:
+#      application: ${spring.application.name}
