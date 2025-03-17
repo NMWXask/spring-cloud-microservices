@@ -8,6 +8,16 @@ Content-Type: application/json
   "password": "password"
 }
 
+### Регситрация пользователя и получение JWT токена
+POST http://localhost:8080/auth/register
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "poshta@mail.ru",
+  "password": "password"
+}
+
 > {%
     client.test("Request executed successfully", function() {
         var response = JSON.parse(client.response.body);
