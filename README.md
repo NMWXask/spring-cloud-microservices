@@ -101,7 +101,7 @@ Grafana: [http://localhost:4000](http://localhost:4000)
 ### Пример конфигурации дашборда:
 
 1. Добавление панели:
-    - В поле "Query" введите `metric_name_requests_total`.
+    - В поле "Query" введите `metric_name_requests_total_failure_total`.
     - Настройте визуализацию (например, график или счетчик).
 2. Сохранение дашборда:
     - Нажмите "Save dashboard".

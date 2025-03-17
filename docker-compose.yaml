@@ -12,8 +12,13 @@ services:
       - '--web.enable-lifecycle'
 
   grafana:
-    image: grafana/grafana:latest
+    container_name: grafana
+    image: bitnami/grafana:latest
     ports:
       - "4000:3000"
+    volumes:
+      - ./grafana-data/:/opt/bitnami/grafana/data/
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     depends_on:
       - prometheus
