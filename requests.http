@@ -1,5 +1,46 @@
-POST http://localhost:8089/booking
+### Аутентификация пользователя и получение JWT токена
+POST http://localhost:8080/auth/authenticate
 Content-Type: application/json
+
+{
+  "username": "admin",
+  "email": "poshta@mail.ru",
+  "password": "password"
+}
+
+> {%
+    client.test("Request executed successfully", function() {
+        var response = JSON.parse(client.response.body);
+        client.global.set("jwt_token", response.token);
+    });
+%}
+
+### Пример использования JWT токена для доступа к защищенному ресурсу
+GET http://localhost:8080/protected/resource
+Authorization: Bearer {{jwt_token}}
+
+### Получение артиста по ID
+GET http://localhost:8080/artist/1
+Authorization: Bearer {{jwt_token}}
+
+### Получение билета по ID
+GET http://localhost:8080/ticket/2
+Authorization: Bearer {{jwt_token}}
+
+### Отправка уведомления
+POST http://localhost:8080/api/v1/notification/send
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
+
+{
+  "message": "Your ticket has been booked successfully.",
+  "userId": 2
+}
+
+### Выполнение запроса на бронирование билета
+POST http://localhost:8080/booking
+Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
 
 {
   "ticketId": 1,

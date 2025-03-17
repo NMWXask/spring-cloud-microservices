@@ -1,5 +1,4 @@
-# Microservices
-### Зачетный проект на курсе Otus Разработчик Spring Framework
+### Распределенная система бронирования заказов
 
 ## Стек технологий
 
@@ -52,6 +51,7 @@
 ## Коллекция запросов Postman
 
 [postman-collection/Microservice.postman_collection.json](postman-collection/Microservice.postman_collection.json)
+- Файл с запросами в корне проекта из IDE  [requests.http]
 
 ## Локальный запуск
 
