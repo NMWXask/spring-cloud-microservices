@@ -94,7 +94,7 @@ Grafana: [http://localhost:4000](http://localhost:4000)
 
 1. Перейдите в "Create" -> "Dashboard".
 2. Нажмите "Add new panel".
-3. В поле "Metrics" введите `client_account_requests_total`.
+3. В поле "Metrics" введите `metric_name_requests_total`.
 4. Настройте график по вашему усмотрению.
 5. Сохраните дашборд.
 
